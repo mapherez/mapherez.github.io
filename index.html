@@ -18,36 +18,44 @@
             padding: 5px;
             width: 150px;
         }
+        #table-wrap {
+            width: fit-content;
+            height: fit-content;
+            background-color: rgb(226, 222, 216);
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
+        $(function() {
             $( "#sortable" ).sortable({
-                revert: true
+                axis: "y",
+                cancel: "li.non-selectable"
             });
             $( "#draggable" ).draggable({
                 connectToSortable: "#sortable",
-                helper: "clone",
-                revert: "invalid"
+                containment: "#table-wrap",
+                axis: "y"                
             });
             $( "ul, li" ).disableSelection();
         });
     </script>
 </head>
 <body>
- 
-<ul>
-    <li id="draggable" class="ui-state-highlight">Drag me down</li>
-</ul>
- 
-<ul id="sortable">
-    <li class="ui-state-default">Item 1</li>
-    <li class="ui-state-default">Item 2</li>
-    <li class="ui-state-default">Item 3</li>
-    <li class="ui-state-default">Item 4</li>
-    <li class="ui-state-default">Item 5</li>
-</ul> 
+
+    <div id="table-wrap">
+        <ul id="sortable">
+            <li id="draggable">draggable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+            <li class="non-selectable">sortable</li>
+        </ul> 
+    </div>
  
 </body>
 </html>
