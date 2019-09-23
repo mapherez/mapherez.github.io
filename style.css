@@ -12,10 +12,12 @@ body {
 	background-color: #f1f1f1;
 }	
 .container {
-	width: 600px;
+	width: 100%;
 	position: relative;
 	display: flex;
-	justify-content: space-between;
+    align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 }	
 .container .card {
 	position: relative;
